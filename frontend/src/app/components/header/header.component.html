@@ -1,0 +1,53 @@
+<header [class.scrolled]="scrolled()">
+  <div class="container header-inner">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <img src="assets/images/logo.svg" alt="Saveurs d'Agojie" class="logo-img">
+      <span class="logo-text">Saveurs <span class="logo-accent">d'Agojie</span></span>
+    </a>
+
+    <nav [class.open]="mobileMenuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Accueil</a>
+      <a routerLink="/ferme" routerLinkActive="active" (click)="closeMenu()">La Ferme</a>
+      <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Notre Menu</a>
+      <a routerLink="/a-propos" routerLinkActive="active" (click)="closeMenu()">À Propos</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a routerLink="/menu" class="panier-btn" (click)="closeMenu()" aria-label="Voir le panier">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        @if (panierService.nombreArticles() > 0) {
+          <span class="panier-badge">{{ panierService.nombreArticles() }}</span>
+        }
+      </a>
+      @if (authService.isAuthenticated) {
+        <div class="user-menu">
+          <span class="user-greeting">Bonjour, {{ authService.user()?.first_name }}</span>
+          <button class="btn-logout" (click)="logout()" aria-label="Se déconnecter">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <path d="m16 17 5-5-5-5"/>
+              <path d="M21 12H9"/>
+            </svg>
+            <span>Déconnexion</span>
+          </button>
+        </div>
+      } @else {
+        <a routerLink="/connexion" class="btn-inscription" (click)="closeMenu()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <path d="m10 17 5-5-5-5"/>
+            <path d="M15 12H3"/>
+          </svg>
+          <span>Se connecter</span>
+        </a>
+      }
+      <button class="hamburger" (click)="toggleMenu()" [class.open]="mobileMenuOpen()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

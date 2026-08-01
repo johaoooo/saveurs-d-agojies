@@ -1,0 +1,113 @@
+<section class="auth-page">
+  <div class="container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="assets/images/logo.svg" alt="Saveurs d'Agojie" class="auth-logo">
+        <h1>Créer un compte</h1>
+        <p>Rejoignez-nous en quelques secondes</p>
+      </div>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+        @if (errorMessage) {
+          <div class="auth-error">{{ errorMessage }}</div>
+        }
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">Prénom *</label>
+            <input
+              id="first_name"
+              type="text"
+              class="form-control"
+              formControlName="first_name"
+              placeholder="Votre prénom"
+            >
+            @if (registerForm.get('first_name')?.invalid && registerForm.get('first_name')?.touched) {
+              <span class="form-error">Le prénom est requis.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Nom *</label>
+            <input
+              id="last_name"
+              type="text"
+              class="form-control"
+              formControlName="last_name"
+              placeholder="Votre nom"
+            >
+            @if (registerForm.get('last_name')?.invalid && registerForm.get('last_name')?.touched) {
+              <span class="form-error">Le nom est requis.</span>
+            }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur *</label>
+          <input
+            id="username"
+            type="text"
+            class="form-control"
+            formControlName="username"
+            placeholder="Choisissez un nom d'utilisateur"
+          >
+          @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
+            <span class="form-error">Minimum 3 caractères.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse e-mail *</label>
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="vous@exemple.com"
+          >
+          @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+            <span class="form-error">Adresse e-mail invalide.</span>
+          }
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password">Mot de passe *</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="6 caractères minimum"
+            >
+            @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+              <span class="form-error">6 caractères minimum.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirm">Confirmer *</label>
+            <input
+              id="password_confirm"
+              type="password"
+              class="form-control"
+              formControlName="password_confirm"
+              placeholder="Retapez le mot de passe"
+            >
+            @if (registerForm.get('password_confirm')?.invalid && registerForm.get('password_confirm')?.touched) {
+              <span class="form-error">Confirmation requise.</span>
+            }
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid || loading">
+          {{ loading ? 'Création...' : 'Créer mon compte' }}
+        </button>
+      </form>
+
+      <p class="auth-switch">
+        Déjà un compte ?
+        <a routerLink="/connexion" class="auth-link">Se connecter</a>
+      </p>
+    </div>
+  </div>
+</section>

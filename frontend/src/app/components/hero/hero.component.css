@@ -1,0 +1,217 @@
+.hero {
+  position: relative;
+  min-height: 88vh;
+  height: calc(100vh - 80px);
+  max-height: 880px;
+  background-color: #0A0A0C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  overflow: hidden;
+  color: white;
+}
+
+/* ---- Image de fond avec zoom lent (ken-burns) ---- */
+.hero-bg {
+  position: absolute;
+  inset: -6%;
+  background-image: url('/assets/images/hero-grill.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.85) contrast(1.02);
+  animation: kenburns 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1) translateY(0); }
+  to   { transform: scale(1.12) translateY(-1.5%); }
+}
+
+/* ---- Voile dégradé jaune + sombre ---- */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 60% at 50% 30%, rgba(255, 167, 0, 0.16) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(10, 10, 12, 0.62) 0%, rgba(10, 10, 12, 0.45) 45%, rgba(10, 10, 12, 0.88) 100%);
+  pointer-events: none;
+}
+
+/* ---- Halos dorés flottants ---- */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.hero-orb--one {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(255, 167, 0, 0.55) 0%, transparent 70%);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+
+.hero-orb--two {
+  width: 360px;
+  height: 360px;
+  bottom: -100px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(255, 167, 0, 0.35) 0%, transparent 70%);
+  animation: drift 20s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(40px, 30px); }
+}
+
+/* ---- Texture grain subtile ---- */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+/* ---- Transition douce vers la section suivante ---- */
+.hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 170px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(10, 10, 12, 0.7) 55%,
+    var(--bg-light) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: var(--font-sans);
+  font-size: 3.9rem;
+  font-weight: 800;
+  line-height: 1.08;
+  margin-bottom: 24px;
+  color: #FFFFFF;
+  letter-spacing: -1.5px;
+  text-shadow: 0 10px 60px rgba(10, 10, 12, 0.5);
+}
+
+.hero-title-top {
+  display: block;
+}
+
+.hero-title-accent {
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  color: var(--yellow);
+  text-shadow: 0 6px 50px var(--yellow-glow);
+}
+
+.hero-underline {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -16px;
+  width: 92%;
+  height: 14px;
+  color: var(--yellow);
+  opacity: 0.85;
+  animation: drawLine 1.4s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left;
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 0.85; }
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-description {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 42px;
+  line-height: 1.7;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 92vh;
+    padding-top: 40px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+  .hero-orb { animation: none; }
+  .hero-underline { animation: none; opacity: 0.85; }
+}
