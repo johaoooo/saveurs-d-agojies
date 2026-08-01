@@ -40,16 +40,18 @@ header.scrolled {
 }
 
 .logo-text {
-  font-family: var(--font-sans);
-  font-size: 1.55rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--text-dark);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   line-height: 1.1;
 }
 
 .logo-accent {
-  font-style: normal;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
   color: var(--yellow-dark);
 }
 
@@ -319,8 +321,9 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--text-dark);
   }
 
