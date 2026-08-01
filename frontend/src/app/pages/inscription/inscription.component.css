@@ -36,11 +36,12 @@
 }
 
 .auth-logo {
-  width: 74px;
-  height: 74px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 18px;
+  border: 2px solid var(--yellow);
   box-shadow: 0 8px 24px rgba(10, 10, 12, 0.25);
 }
 

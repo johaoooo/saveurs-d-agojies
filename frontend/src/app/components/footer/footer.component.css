@@ -35,12 +35,12 @@ footer::before {
 }
 
 .footer-logo-img {
-  width: 46px;
-  height: 46px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--yellow);
-  box-shadow: 0 4px 14px var(--yellow-glow);
+  box-shadow: 0 4px 16px var(--yellow-glow);
 }
 
 .footer-logo span {
