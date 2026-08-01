@@ -249,6 +249,11 @@
   }
 
   .hero-mobile-menu-btn {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
     display: inline-block;
     text-align: center;
     background: var(--yellow);
@@ -261,18 +266,15 @@
     text-decoration: none;
     box-shadow: 0 4px 16px var(--yellow-glow);
     transition: var(--transition);
-    margin-bottom: 8px;
     max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .hero-mobile-menu-btn:hover {
     background: var(--yellow-bright);
-    transform: translateY(-2px);
+    transform: translateX(-50%) translateY(-2px);
   }
 
   .hero-text-content {
