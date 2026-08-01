@@ -248,35 +248,6 @@
     object-position: top center;
   }
 
-  .hero-mobile-menu-btn {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    display: inline-block;
-    text-align: center;
-    background: var(--yellow);
-    color: var(--text-dark);
-    padding: 6px 18px;
-    border-radius: 50px;
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 4px 16px var(--yellow-glow);
-    transition: var(--transition);
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero-mobile-menu-btn:hover {
-    background: var(--yellow-bright);
-    transform: translateX(-50%) translateY(-2px);
-  }
-
   .hero-text-content {
     text-align: center;
   }
