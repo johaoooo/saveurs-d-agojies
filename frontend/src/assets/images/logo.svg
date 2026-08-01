@@ -5,19 +5,19 @@
       <stop offset="1" stop-color="#0a0a0c"/>
     </linearGradient>
     <linearGradient id="bowl" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffe066"/>
-      <stop offset="1" stop-color="#fcd12a"/>
+      <stop offset="0" stop-color="#f1d064"/>
+      <stop offset="1" stop-color="#d4af37"/>
     </linearGradient>
   </defs>
 
   <circle cx="32" cy="32" r="30" fill="url(#bg)"/>
-  <circle cx="32" cy="32" r="29.25" fill="none" stroke="#fcd12a" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="32" cy="32" r="29.25" fill="none" stroke="#d4af37" stroke-opacity="0.35" stroke-width="1"/>
 
   <path d="M21 30.5c1.5-3 4.5-3 6 0c1.5 3 4.5 3 6 0c1.5-3 4.5-3 6 0"
-        fill="none" stroke="#ffe066" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        fill="none" stroke="#f1d064" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
 
   <path d="M14 37.5a18 18 0 0 0 36 0z" fill="url(#bowl)"/>
-  <path d="M14 37.5h36" fill="none" stroke="#c99700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M14 37.5h36" fill="none" stroke="#9b7812" stroke-width="3" stroke-linecap="round"/>
 
-  <circle cx="49.5" cy="15" r="2.6" fill="#ffe066"/>
+  <circle cx="49.5" cy="15" r="2.6" fill="#f1d064"/>
 </svg>

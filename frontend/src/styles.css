@@ -1,14 +1,14 @@
 :root {
-  /* Palette officielle · Jaune Toscane (Tuscany Yellow #FCD12A) */
+  /* Palette officielle · Or Métallique / Classic Gold (#D4AF37) */
   --primary: #FFFFFF;
-  --yellow: #FCD12A;
-  --accent: #FCD12A;
-  --primary-yellow: #FCD12A;
-  --yellow-bright: #FFE066;
-  --yellow-light: #FFF9E6;
-  --yellow-dark: #C99700;
-  --yellow-glow: rgba(252, 209, 42, 0.35);
-  --yellow-gradient: linear-gradient(135deg, #FCD12A 0%, #FFE066 50%, #C99700 100%);
+  --yellow: #D4AF37;
+  --accent: #D4AF37;
+  --primary-yellow: #D4AF37;
+  --yellow-bright: #F1D064;
+  --yellow-light: #FAF4E1;
+  --yellow-dark: #9B7812;
+  --yellow-glow: rgba(212, 175, 55, 0.35);
+  --yellow-gradient: linear-gradient(135deg, #D4AF37 0%, #F1D064 50%, #9B7812 100%);
 
   /* Neutres */
   --bg-dark: #0A0A0C;
