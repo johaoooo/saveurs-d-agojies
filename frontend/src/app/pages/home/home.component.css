@@ -351,11 +351,48 @@
   flex-grow: 1;
 }
 
+.signature-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
 .signature-price {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   color: var(--yellow-dark);
   font-weight: 600;
+}
+
+.btn-cart-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--yellow-gradient);
+  border: none;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px var(--yellow-glow);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.btn-cart-icon:hover {
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 8px 22px var(--shadow-yellow);
+  color: var(--text-dark);
+}
+
+.btn-cart-icon:active {
+  transform: scale(0.95);
 }
 
 /* ============ TÉMOIGNAGES ============ */
