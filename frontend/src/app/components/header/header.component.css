@@ -40,8 +40,8 @@ header.scrolled {
 }
 
 .logo-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.15rem;
+  font-family: 'Allura', cursive;
+  font-size: 2.3rem;
   font-weight: 400;
   color: var(--text-dark);
   letter-spacing: 0.5px;
@@ -49,7 +49,7 @@ header.scrolled {
 }
 
 .logo-accent {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-weight: 400;
   color: var(--yellow-dark);
 }
@@ -320,9 +320,9 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Allura', cursive;
     font-weight: 400;
-    font-size: 1.55rem;
+    font-size: 1.7rem;
     color: var(--text-dark);
   }
 
