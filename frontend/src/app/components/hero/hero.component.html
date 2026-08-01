@@ -33,6 +33,16 @@
             loading="eager"
           >
         }
+        <div class="hero-slide-dots">
+          @for (slide of slides; track slide; let i = $index) {
+            <button
+              class="dot"
+              [class.active]="currentSlide() === i"
+              (click)="setSlide(i)"
+              [attr.aria-label]="'Slide ' + (i + 1)"
+            ></button>
+          }
+        </div>
       </div>
     </div>
   </div>

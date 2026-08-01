@@ -159,17 +159,68 @@
   height: 480px;
   width: 100%;
   overflow: hidden;
-  border: none;
-  outline: none;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-img-slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.hero-img-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.hero-slide-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  background: rgba(10, 10, 12, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-slide-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
   border: none;
-  outline: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-slide-dots .dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hero-slide-dots .dot.active {
+  width: 28px;
+  border-radius: 12px;
+  background: var(--yellow);
+  box-shadow: 0 0 10px var(--yellow-glow);
 }
 
 /* ---- Transition douce vers la section suivante ---- */
