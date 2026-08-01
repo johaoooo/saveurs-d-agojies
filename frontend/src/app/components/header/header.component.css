@@ -486,14 +486,8 @@ nav a.active {
     min-height: 44px;
   }
 
-  .btn-inscription span {
-    display: none;
-  }
-
   .btn-inscription {
-    padding: 9px 12px;
-    min-width: 44px;
-    min-height: 44px;
+    display: none;
   }
 
   .user-greeting {
