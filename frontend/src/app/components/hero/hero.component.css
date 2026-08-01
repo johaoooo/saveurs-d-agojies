@@ -186,43 +186,6 @@
   pointer-events: auto;
 }
 
-.hero-slide-dots {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-  background: rgba(10, 10, 12, 0.5);
-  backdrop-filter: blur(8px);
-  padding: 6px 14px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.hero-slide-dots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-}
-
-.hero-slide-dots .dot:hover {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.hero-slide-dots .dot.active {
-  width: 28px;
-  border-radius: 12px;
-  background: var(--yellow);
-  box-shadow: 0 0 10px var(--yellow-glow);
-}
-
 /* ---- Transition douce vers la section suivante ---- */
 .hero-fade {
   position: absolute;
