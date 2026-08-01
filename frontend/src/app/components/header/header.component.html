@@ -5,12 +5,41 @@
       <span class="logo-text">Saveurs <span class="logo-accent">d'Agojiés</span></span>
     </a>
 
+    <div class="mobile-overlay" [class.open]="mobileMenuOpen()" (click)="closeMenu()"></div>
+
     <nav [class.open]="mobileMenuOpen()">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Accueil</a>
-      <a routerLink="/ferme" routerLinkActive="active" (click)="closeMenu()">La Ferme</a>
-      <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Notre Menu</a>
-      <a routerLink="/a-propos" routerLinkActive="active" (click)="closeMenu()">À Propos</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <img src="assets/images/logo.svg" alt="Saveurs d'Agojiés" class="logo-img-sm">
+          <span>Saveurs d'Agojiés</span>
+        </div>
+        <button class="mobile-nav-close" (click)="closeMenu()" aria-label="Fermer le menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="nav-links">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Accueil</a>
+        <a routerLink="/ferme" routerLinkActive="active" (click)="closeMenu()">La Ferme</a>
+        <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Notre Menu</a>
+        <a routerLink="/a-propos" routerLinkActive="active" (click)="closeMenu()">À Propos</a>
+        <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      </div>
+
+      <div class="mobile-nav-footer">
+        @if (authService.isAuthenticated) {
+          <div class="mobile-user-card">
+            <span class="mobile-user-name">Bonjour, {{ authService.user()?.first_name }}</span>
+            <button class="btn-logout-mobile" (click)="logout(); closeMenu();">
+              <span>Se déconnecter</span>
+            </button>
+          </div>
+        } @else {
+          <a routerLink="/connexion" class="btn-login-mobile" (click)="closeMenu()">
+            Se connecter / S'inscrire
+          </a>
+        }
+      </div>
     </nav>
 
     <div class="header-actions">
