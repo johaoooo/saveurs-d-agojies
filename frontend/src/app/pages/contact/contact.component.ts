@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -12,13 +13,22 @@ export class ContactComponent {
   contactForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute
+  ) {
     this.contactForm = this.fb.group({
       sujet: ['', Validators.required],
       nom: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', [Validators.required]],
       message: ['', [Validators.required, Validators.minLength(10)]],
+    });
+
+    this.route.queryParams.subscribe((params) => {
+      if (params['sujet']) {
+        this.contactForm.patchValue({ sujet: params['sujet'] });
+      }
     });
   }
 
