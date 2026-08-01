@@ -40,8 +40,8 @@ header.scrolled {
 }
 
 .logo-text {
-  font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
-  font-size: 1.75rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.3px;
@@ -50,7 +50,7 @@ header.scrolled {
 }
 
 .logo-accent {
-  font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
   color: var(--yellow-dark);
@@ -323,9 +323,9 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
     -webkit-text-stroke: initial;
   }
