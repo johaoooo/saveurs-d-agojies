@@ -239,6 +239,23 @@ nav a.active {
 }
 
 @media (max-width: 900px) {
+  .header-inner {
+    height: 76px;
+  }
+
+  .logo {
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .logo-text {
+    font-size: 1.18rem;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -247,8 +264,9 @@ nav a.active {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(10, 10, 12, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(10, 10, 12, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     z-index: 1001;
     opacity: 0;
     pointer-events: none;
@@ -265,7 +283,7 @@ nav a.active {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 320px;
+    width: 300px;
     max-width: 85vw;
     height: 100dvh;
     background: var(--bg-light-card);
@@ -275,7 +293,7 @@ nav a.active {
     gap: 0;
     border-radius: 0;
     border: none;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18);
     transform: translateX(100%);
     opacity: 1;
     pointer-events: none;
@@ -292,7 +310,7 @@ nav a.active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 24px;
+    padding: 18px 20px;
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-light);
   }
@@ -302,13 +320,13 @@ nav a.active {
     align-items: center;
     gap: 10px;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-dark);
   }
 
   .logo-img-sm {
-    width: 54px;
-    height: 54px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     border: 2px solid var(--yellow);
     object-fit: cover;
@@ -336,14 +354,14 @@ nav a.active {
 
   .nav-links {
     flex-direction: column;
-    padding: 16px;
+    padding: 16px 14px;
     gap: 6px;
     flex: 1;
   }
 
   nav a {
-    padding: 14px 18px;
-    font-size: 1rem;
+    padding: 12px 16px;
+    font-size: 0.98rem;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -365,9 +383,50 @@ nav a.active {
     border-radius: 4px 12px 12px 4px;
   }
 
+  .nav-item-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    border-radius: 12px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(10, 10, 12, 0.03);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    margin-top: 4px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item-dropdown.open .dropdown-menu {
+    max-height: 300px;
+    padding: 6px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-menu a {
+    padding: 10px 14px 10px 20px;
+  }
+
   .mobile-nav-footer {
     display: block;
-    padding: 20px 24px 30px;
+    padding: 18px 20px 28px;
     border-top: 1px solid var(--border-light);
     background: var(--bg-light);
   }
@@ -375,7 +434,7 @@ nav a.active {
   .btn-login-mobile {
     display: block;
     width: 100%;
-    padding: 13px;
+    padding: 12px;
     text-align: center;
     background: var(--yellow-gradient);
     color: var(--text-dark);
@@ -383,32 +442,32 @@ nav a.active {
     border-radius: 50px;
     text-decoration: none;
     box-shadow: var(--shadow-yellow);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .mobile-user-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
   }
 
   .mobile-user-name {
     font-weight: 700;
     color: var(--text-dark);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .btn-logout-mobile {
     width: 100%;
-    padding: 11px;
+    padding: 10px;
     background: rgba(220, 53, 69, 0.08);
     border: 1px solid rgba(220, 53, 69, 0.3);
     color: #C0392B;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   .btn-inscription span {
@@ -416,7 +475,7 @@ nav a.active {
   }
 
   .btn-inscription {
-    padding: 10px 14px;
+    padding: 9px 12px;
   }
 
   .user-greeting {
@@ -428,7 +487,26 @@ nav a.active {
   }
 
   .btn-logout {
-    padding: 10px 14px;
+    padding: 9px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    height: 70px;
+  }
+
+  .logo-img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .logo-text {
+    font-size: 1.05rem;
+  }
+
+  .header-actions {
+    gap: 8px;
   }
 }
 
