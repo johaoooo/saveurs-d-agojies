@@ -1,40 +1,25 @@
 <section class="page-header">
   <div class="container">
-    <h1>Formations <span class="accent">Pratiques & Métiers</span></h1>
-    <p>Transmettre l'excellence culinaire, l'agriculture éco-responsable et l'artisanat du terroir</p>
+    <h1>Formations <span class="accent">& Transmission</span></h1>
+    <p>Apprenez nos métiers sur le terrain au cœur de notre ferme à Porto-Novo</p>
   </div>
 </section>
 
-<!-- ============ PRÉSENTATION DU CENTRE ============ -->
+<!-- ============ HERO INTRO SHOWCASE ============ -->
 <section class="section">
   <div class="container">
-    <div class="intro-grid">
-      <div class="intro-content">
-        <span class="section-tag">Transmettre Notre Savoir-Faire</span>
-        <h2 class="section-title text-left">Apprenez sur le terrain <span class="accent">avec des experts praticiens</span></h2>
-        <p class="intro-text">
-          Saveurs d'Agojiés ouvre les portes de sa ferme et de ses cuisines à Porto-Novo. Nos formations pratiques s'adressent aussi bien aux passionnés désireux d'apprendre qu'aux futurs professionnels souhaitant lancer leur activité d'élevage, de pépinière ou de restauration.
+    <div class="hero-showcase">
+      <div class="hero-showcase-text">
+        <h2 class="section-title text-left">Apprenez par la pratique <span class="accent">aux côtés de nos experts</span></h2>
+        <p class="showcase-lead">
+           Saveurs d'Agojiés transmet son savoir-faire unique à travers des sessions de formation 100% pratiques. Que vous soyez passionné ou porteur d'un projet professionnel, vous apprenez directement sur nos exploitations agricoles et dans nos cuisines.
         </p>
-        <div class="intro-stats">
-          <div class="stat-item">
-            <span class="stat-num">90%</span>
-            <span class="stat-label">Pratique immersive terrain</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">Encadrement par des praticiens</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">📜</span>
-            <span class="stat-label">Attestation de fin de session</span>
-          </div>
-        </div>
+        <p class="showcase-desc">
+          Chaque programme est dispensé en immersion totale : manipulation des animaux et des bassins, techniques de préparation culinaire au feu de bois, greffage d'arbres et conduite des ruches.
+        </p>
       </div>
-      <div class="intro-image-box">
-        <img src="assets/images/formation.jpg" alt="Formation pratique Saveurs d'Agojiés" loading="lazy">
-        <div class="intro-image-badge">
-          <span>📍 Ferme de Porto-Novo, Bénin</span>
-        </div>
+      <div class="hero-showcase-image">
+        <img src="assets/images/formation.jpg" alt="Formation pratique à Porto-Novo" class="img-hero-feature" loading="lazy">
       </div>
     </div>
   </div>
@@ -42,153 +27,71 @@
 
 <div class="woven-divider"></div>
 
-<!-- ============ FILTRE ET MODULES ============ -->
+<!-- ============ PROGRAMMES AVEC IMAGES DE DIFFÉRENTES TAILLES ============ -->
 <section class="section section-light">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Nos Programmes de <span class="accent">Formation</span></h2>
-      <p class="section-subtitle">Sélectionnez le pôle qui correspond à votre projet et découvrez nos modules détaillés.</p>
+      <h2 class="section-title">Nos Programmes <span class="accent">de Formation</span></h2>
+      <p class="section-subtitle">Une immersion complète pour maîtriser un métier du terroir de A à Z.</p>
     </div>
 
-    <div class="category-tabs">
-      <button class="tab-btn" [class.active]="selectedCategory() === 'tous'" (click)="setCategory('tous')">
-        Tous les programmes
-      </button>
-      <button class="tab-btn" [class.active]="selectedCategory() === 'cuisine'" (click)="setCategory('cuisine')">
-        🍳 Art Culinaire & Traiteur
-      </button>
-      <button class="tab-btn" [class.active]="selectedCategory() === 'elevage'" (click)="setCategory('elevage')">
-        🐟 Élevage & Pisciculture
-      </button>
-      <button class="tab-btn" [class.active]="selectedCategory() === 'pepiniere'" (click)="setCategory('pepiniere')">
-        🌱 Pépinière & Apiculture
-      </button>
-    </div>
+    <div class="programs-list">
+      @for (prog of programs; track prog.id; let idx = $index) {
+        <article class="program-block" [class.reverse]="idx % 2 === 1">
+          <!-- Galerie d'images asymétriques -->
+          <div class="program-gallery">
+            <div class="gallery-primary" [ngClass]="prog.imageRatioPrimary">
+              <img [src]="prog.imagePrimary" [alt]="prog.title" loading="lazy">
+            </div>
+            @if (prog.imageSecondary) {
+              <div class="gallery-secondary">
+                <img [src]="prog.imageSecondary" [alt]="prog.title" loading="lazy">
+              </div>
+            }
+          </div>
 
-    <div class="modules-grid">
-      @for (mod of filteredModules; track mod.id) {
-        <div class="module-card">
-          <div class="module-header">
-            <span class="module-icon">{{ mod.icon }}</span>
-            <div class="module-meta">
-              <span class="meta-duration">⏱️ {{ mod.duration }}</span>
-              <span class="meta-level">🎓 {{ mod.level }}</span>
+          <!-- Détails et contenu -->
+          <div class="program-details">
+            <span class="program-category">{{ prog.category }}</span>
+            <h3>{{ prog.title }}</h3>
+            <span class="program-duration">⏱️ {{ prog.duration }}</span>
+            <p class="program-description">{{ prog.description }}</p>
+
+            <div class="program-curriculum">
+              <h4>Programme & compétences enseignées :</h4>
+              <ul class="curriculum-list">
+                @for (item of prog.highlights; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+
+            <div class="program-actions">
+              <button class="btn btn-primary" (click)="demanderInfoWhatsApp(prog.title)">
+                S'informer sur WhatsApp
+              </button>
             </div>
           </div>
-          <h3>{{ mod.title }}</h3>
-          <p class="module-desc">{{ mod.description }}</p>
-
-          <div class="module-topics-box">
-            <h4>Compétences acquises :</h4>
-            <ul class="topics-list">
-              @for (topic of mod.topics; track topic) {
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>{{ topic }}</span>
-                </li>
-              }
-            </ul>
-          </div>
-
-          <div class="module-footer">
-            <a href="#form-inscription" class="btn btn-primary btn-full" (click)="inscriptionForm.patchValue({ formation: mod.title })">
-              Postuler à ce module
-            </a>
-          </div>
-        </div>
+        </article>
       }
     </div>
   </div>
 </section>
 
-<!-- ============ FORMULAIRE D'INSCRIPTION ============ -->
-<section id="form-inscription" class="section inscription-section section-dark">
-  <div class="container">
-    <div class="form-grid">
-      <div class="form-intro">
-        <h2>Inscrivez-vous à une <span class="accent">session de formation</span></h2>
-        <p>
-          Remplissez le formulaire ci-dessous. Notre équipe vous recontactera immédiatement pour confirmer les dates de session et vous transmettre la fiche d'inscription.
-        </p>
-        <div class="contact-direct">
-          <div class="direct-item">
-            <strong>📞 Téléphone / WhatsApp</strong>
-            <p>+229 01 97 00 00 00</p>
-          </div>
-          <div class="direct-item">
-            <strong>📧 Email Formations</strong>
-            <p>contact&#64;saveursdagojies.com</p>
-          </div>
-          <div class="direct-item">
-            <strong>📍 Lieu des cours</strong>
-            <p>Ferme & Resto Saveurs d'Agojiés · Porto-Novo, Bénin</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-card-wrapper">
-        <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()" class="inscription-form">
-          <div class="form-group">
-            <label for="formation">Module de formation souhaité *</label>
-            <select id="formation" formControlName="formation" class="form-control">
-              <option value="">Sélectionnez un programme...</option>
-              <option value="Art Culinaire & Gastronomie Béninoise">Art Culinaire & Gastronomie Béninoise</option>
-              <option value="Traiteur & Événementiel Clé en Main">Traiteur & Événementiel Clé en Main</option>
-              <option value="Aviculture & Volailles Rares">Aviculture & Volailles Rares</option>
-              <option value="Pisciculture & Gestion des Bassins">Pisciculture & Gestion des Bassins</option>
-              <option value="Pépinière Fruitière & Greffage">Pépinière Fruitière & Greffage</option>
-              <option value="Apiculture & Plantes Aromatiques Bio">Apiculture & Plantes Aromatiques Bio</option>
-            </select>
-            @if (submitted && inscriptionForm.get('formation')?.invalid) {
-              <span class="form-error">Veuillez choisir un programme</span>
-            }
-          </div>
-
-          <div class="form-group">
-            <label for="nom">Nom & Prénom *</label>
-            <input id="nom" type="text" formControlName="nom" class="form-control" placeholder="Votre nom complet">
-            @if (submitted && inscriptionForm.get('nom')?.invalid) {
-              <span class="form-error">Veuillez saisir votre nom</span>
-            }
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input id="email" type="email" formControlName="email" class="form-control" placeholder="votre@email.com">
-              @if (submitted && inscriptionForm.get('email')?.invalid) {
-                <span class="form-error">Email valide requis</span>
-              }
-            </div>
-            <div class="form-group">
-              <label for="telephone">Téléphone (WhatsApp) *</label>
-              <input id="telephone" type="tel" formControlName="telephone" class="form-control" placeholder="+229 XX XX XX XX">
-              @if (submitted && inscriptionForm.get('telephone')?.invalid) {
-                <span class="form-error">Numéro requis</span>
-              }
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="niveau">Votre niveau actuel</label>
-            <select id="niveau" formControlName="niveau" class="form-control">
-              <option value="Débutant">Débutant (Curieux / Passionné)</option>
-              <option value="Intermédiaire">Intermédiaire (Reconversion / Projet d'activité)</option>
-              <option value="Professionnel">Professionnel (Perfectionnement)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Vos attentes ou questions particulières</label>
-            <textarea id="message" formControlName="message" class="form-control" rows="3" placeholder="Disponibilités, questions spécifiques..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-whatsapp btn-full btn-lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Envoyer l'inscription sur WhatsApp
-          </button>
-        </form>
-      </div>
+<!-- ============ BANNIÈRE ACTION SANS FORMULAIRE ============ -->
+<section class="section action-banner section-dark">
+  <div class="container action-banner-content">
+    <h2>Prêt à débuter <span class="accent">votre formation ?</span></h2>
+    <p>
+      Contactez notre équipe pédagogique pour connaître le calendrier des prochaines sessions et réserver votre place.
+    </p>
+    <div class="action-banner-buttons">
+      <a href="https://wa.me/2290197000000?text=Bonjour%20Saveurs%20d'Agoji%C3%A9s,%20je%20souhaite%20des%20informations%20sur%20les%20dates%20de%20formation" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+        Rejoindre une session sur WhatsApp
+      </a>
+      <a href="mailto:contact@saveursdagojies.com?subject=Demande%20d'information%20Formation" class="btn btn-outline-light btn-lg">
+        Demander les détails par email
+      </a>
     </div>
   </div>
 </section>
