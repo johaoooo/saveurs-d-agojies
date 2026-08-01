@@ -7,6 +7,19 @@
 
   <div class="container hero-container">
     <div class="hero-grid">
+      <!-- Colonne Image gauche (Slide) -->
+      <div class="hero-left-image anim-up anim-up--d1">
+        @for (slide of leftSlides; track slide; let i = $index) {
+          <img
+            [src]="slide"
+            alt="Saveurs d'Agojiés"
+            class="hero-left-slide"
+            [class.active]="currentSlide() === i"
+            loading="eager"
+          >
+        }
+      </div>
+
       <!-- Colonne Texte -->
       <div class="hero-text-content">
         <h1 class="hero-title anim-up anim-up--d1">
@@ -22,15 +35,18 @@
         </div>
       </div>
 
-      <!-- Colonne Image unique -->
+      <!-- Colonne Image droite (Slide) -->
       <a routerLink="/menu" class="hero-mobile-menu-btn">Voir le Menu</a>
       <div class="hero-image-wrapper anim-up anim-up--d2">
-        <img
-          src="https://res.cloudinary.com/dzxesa3wi/image/upload/v1785612103/WhatsApp_Image_2026-08-01_at_20.13.49-removebg-preview_1_af8p7b.png"
-          alt="Saveurs d'Agojiés - Cuisine & Ferme"
-          class="hero-img-slide"
-          loading="eager"
-        >
+        @for (slide of slides; track slide; let i = $index) {
+          <img
+            [src]="slide"
+            alt="Saveurs d'Agojiés - Cuisine & Ferme"
+            class="hero-img-slide"
+            [class.active]="currentSlide() === i"
+            loading="eager"
+          >
+        }
       </div>
     </div>
   </div>
