@@ -241,7 +241,7 @@
   }
 
   .hero-image-wrapper {
-    height: 260px;
+    height: 200px;
     width: 100%;
   }
 
@@ -257,19 +257,21 @@
     text-align: center;
     background: var(--yellow);
     color: var(--text-dark);
-    padding: 8px 20px;
+    padding: 6px 18px;
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 4px 16px var(--yellow-glow);
     transition: var(--transition);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-mobile-menu-btn:hover {
