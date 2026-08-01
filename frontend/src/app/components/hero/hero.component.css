@@ -266,6 +266,10 @@
     box-shadow: 0 4px 16px var(--yellow-glow);
     transition: var(--transition);
     margin-bottom: 12px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hero-mobile-menu-btn:hover {
