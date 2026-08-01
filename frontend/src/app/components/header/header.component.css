@@ -474,11 +474,11 @@ nav a.active {
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  width: 290px;
+  width: 260px;
   background: var(--bg-light-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 10px;
+  padding: 8px;
   box-shadow: 0 14px 40px rgba(10, 10, 12, 0.14);
   opacity: 0;
   visibility: hidden;
@@ -501,8 +501,7 @@ nav a.active {
 
 .dropdown-menu a {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
   padding: 10px 14px;
   border-radius: 12px;
   text-decoration: none;
@@ -521,18 +520,6 @@ nav a.active {
   color: var(--yellow-dark);
   font-weight: 700;
   box-shadow: none;
-}
-
-.dropdown-icon {
-  font-size: 1.3rem;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: rgba(255, 167, 0, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
 
 .dropdown-menu a div {
