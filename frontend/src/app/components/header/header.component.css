@@ -20,28 +20,28 @@ header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 86px;
+  height: 96px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-decoration: none;
 }
 
 .logo-img {
-  width: 58px;
-  height: 58px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--yellow);
-  box-shadow: 0 4px 16px var(--yellow-glow);
+  border: 2.5px solid var(--yellow);
+  box-shadow: 0 4px 20px var(--yellow-glow);
 }
 
 .logo-text {
   font-family: var(--font-sans);
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.5px;
@@ -307,8 +307,8 @@ nav a.active {
   }
 
   .logo-img-sm {
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     border: 2px solid var(--yellow);
     object-fit: cover;
