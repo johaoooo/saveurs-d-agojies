@@ -18,6 +18,26 @@ export class MenuComponent implements OnInit {
   panierOuvert = signal(false);
   loading = signal(true);
 
+  previewModal = signal<{ open: boolean; image: string; title: string; description: string }>({
+    open: false,
+    image: '',
+    title: '',
+    description: '',
+  });
+
+  openPreview(image: string, title: string, description: string): void {
+    this.previewModal.set({
+      open: true,
+      image,
+      title,
+      description,
+    });
+  }
+
+  closePreview(): void {
+    this.previewModal.update((state) => ({ ...state, open: false }));
+  }
+
   categories = signal<CategorieMenu[]>([
     { id: 0, name: 'Tous', slug: 'tous' },
     { id: 1, name: 'Entrées, Snacking & Brochettes', slug: 'entrees-snacking-brochettes' },

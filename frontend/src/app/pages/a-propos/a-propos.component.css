@@ -21,10 +21,11 @@
 }
 
 .story-title {
-  font-size: 2.4rem;
+  font-size: clamp(1.15rem, 3.8vw, 2.4rem);
   margin-bottom: 22px;
   color: var(--text-dark);
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .story-title .accent {

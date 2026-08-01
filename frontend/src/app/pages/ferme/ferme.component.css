@@ -178,23 +178,27 @@
 }
 
 .produit-image {
-  height: 180px;
+  height: 220px;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .produit-image::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 12, 0.05) 45%, rgba(10, 10, 12, 0.4) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.04) 50%, rgba(10, 10, 12, 0.38) 100%);
+  pointer-events: none;
 }
 
 .produit-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
 }
 
 .produit-card:hover .produit-image img {
@@ -274,10 +278,151 @@
 
 .produit-actions {
   padding: 16px 26px 24px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.btn-full {
+/* ---- Bouton Aperçu Œil sur l'Image ---- */
+.btn-eye-preview {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: var(--transition);
+  opacity: 0.88;
+}
+
+.produit-card:hover .btn-eye-preview {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.btn-eye-preview:hover {
+  background: var(--yellow);
+  color: var(--text-dark);
+  border-color: var(--yellow);
+  transform: scale(1.15) !important;
+  box-shadow: 0 4px 14px var(--yellow-glow);
+}
+
+/* ---- Bouton Chariot de Courses ---- */
+.btn-cart-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--yellow-gradient);
+  color: var(--text-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px var(--yellow-glow);
+}
+
+.btn-cart-icon:hover {
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 8px 22px var(--shadow-yellow);
+}
+
+.btn-cart-icon:active {
+  transform: scale(0.95);
+}
+
+/* ---- Modale Lightbox Aperçu d'Image ---- */
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease;
+}
+
+.image-modal-content {
+  position: relative;
+  background: var(--bg-light-card);
+  border-radius: var(--radius-lg);
+  max-width: 640px;
   width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-light);
+  animation: fadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: var(--transition);
+}
+
+.image-modal-close:hover {
+  background: var(--yellow);
+  color: var(--text-dark);
+  transform: rotate(90deg);
+}
+
+.image-modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-modal-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  background: var(--bg-dark);
+  padding: 12px;
+}
+
+.image-modal-info {
+  padding: 22px 26px 26px;
+  background: var(--bg-light-card);
+}
+
+.image-modal-info h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.image-modal-info p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 .empty-state {

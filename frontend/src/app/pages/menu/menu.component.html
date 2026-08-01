@@ -50,6 +50,17 @@
               <div class="plat-card">
                 <div class="plat-image">
                   <img [src]="boisson.image || 'assets/images/plat-default.jpg'" [alt]="boisson.name" loading="lazy">
+                  <button
+                    class="btn-eye-preview"
+                    (click)="openPreview(boisson.image || 'assets/images/plat-default.jpg', boisson.name, boisson.description)"
+                    aria-label="Voir l'image en grand"
+                    title="Voir l'image en grand"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
                 </div>
                 <div class="plat-info">
                   <h3>{{ boisson.name }}</h3>
@@ -60,9 +71,16 @@
                 </div>
                 <div class="plat-actions">
                   <span class="plat-prix">{{ (boisson.price || 0).toLocaleString('fr-FR') }} FCFA</span>
-                  <button class="btn btn-primary plat-btn" (click)="addBoissonToCart(boisson)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                    Ajouter
+                  <button
+                    class="btn-cart-icon"
+                    (click)="addBoissonToCart(boisson)"
+                    aria-label="Ajouter au panier"
+                    title="Ajouter au panier"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -74,6 +92,17 @@
               <div class="plat-card">
                 <div class="plat-image">
                   <img [src]="plat.image || 'assets/images/plat-default.jpg'" [alt]="plat.name" loading="lazy">
+                  <button
+                    class="btn-eye-preview"
+                    (click)="openPreview(plat.image || 'assets/images/plat-default.jpg', plat.name, plat.description)"
+                    aria-label="Voir l'image en grand"
+                    title="Voir l'image en grand"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
                 </div>
                 <div class="plat-info">
                   <h3>{{ plat.name }}</h3>
@@ -100,9 +129,16 @@
                 </div>
                 <div class="plat-actions">
                   <span class="plat-prix">{{ (plat.price || 0).toLocaleString('fr-FR') }} FCFA</span>
-                  <button class="btn btn-primary plat-btn" (click)="addToCart(plat)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                    Ajouter
+                  <button
+                    class="btn-cart-icon"
+                    (click)="addToCart(plat)"
+                    aria-label="Ajouter au panier"
+                    title="Ajouter au panier"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -202,3 +238,20 @@
     </button>
   }
 </div>
+
+@if (previewModal().open) {
+  <div class="image-modal-backdrop" (click)="closePreview()">
+    <div class="image-modal-content" (click)="$event.stopPropagation()">
+      <button class="image-modal-close" (click)="closePreview()" aria-label="Fermer l'aperçu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="image-modal-body">
+        <img [src]="previewModal().image" [alt]="previewModal().title" class="image-modal-img">
+        <div class="image-modal-info">
+          <h3>{{ previewModal().title }}</h3>
+          <p>{{ previewModal().description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+}

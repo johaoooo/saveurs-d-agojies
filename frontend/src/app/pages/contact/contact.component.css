@@ -109,10 +109,22 @@ textarea.form-control {
 
 .contact-detail {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-detail:last-of-type {
@@ -129,6 +141,7 @@ textarea.form-control {
 .contact-detail p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
+  word-break: break-word;
 }
 
 .contact-whatsapp {
@@ -175,18 +188,61 @@ textarea.form-control {
 }
 
 @media (max-width: 900px) {
-.page-header {
-  --page-header-img: url('/assets/images/resto-salle.jpg');
-}
+  .page-header {
+    --page-header-img: url('/assets/images/resto-salle.jpg');
+  }
 
-.contact-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
+  .contact-title {
+    font-size: 1.7rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+
+  .contact-form {
+    gap: 16px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-control {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .contact-card {
+    padding: 24px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+  }
+
+  .contact-detail {
+    padding: 12px 0;
+    gap: 14px;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .map-placeholder {
+    height: 180px;
   }
 }
