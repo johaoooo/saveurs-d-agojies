@@ -80,7 +80,7 @@ export class PanierService {
     const items = this.items();
     if (items.length === 0) return '';
 
-    let message = '*Commande Saveurs d\'Agojie*%0A%0A';
+    let message = '*Commande Saveurs d\'Agojiés*%0A%0A';
     items.forEach((item, index) => {
       const name = item.plat.name || item.plat.nom || 'Produit';
       const price = item.plat.price !== undefined ? item.plat.price : (item.plat.prix || 0);

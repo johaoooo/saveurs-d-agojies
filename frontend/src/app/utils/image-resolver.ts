@@ -32,6 +32,12 @@ const has = (text: string, words: string[]): boolean => {
   return words.some((w) => lower.includes(w));
 };
 
+const produitsDir = 'assets/images/produits/';
+
+export function produitImage(slug?: string): string {
+  return slug ? `${produitsDir}${slug}.jpg` : '';
+}
+
 export function resolveFermeImage(name: string): string {
   const t = name.toLowerCase();
   if (has(t, ['mouton', 'chèvre', 'chevre', 'bœuf', 'boeuf', 'veau', 'bétail', 'betail', 'agneau'])) return IMG.betail;

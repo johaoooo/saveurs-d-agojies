@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { CategorieFerme, ProduitFerme, Plat } from '../../models/produit.model';
 import { PanierService } from '../../services/panier.service';
-import { resolveFermeCategoryImage, resolveFermeImage } from '../../utils/image-resolver';
+import { resolveFermeCategoryImage, resolveFermeImage, produitImage } from '../../utils/image-resolver';
 
 @Component({
   selector: 'app-ferme',
@@ -14,6 +14,7 @@ import { resolveFermeCategoryImage, resolveFermeImage } from '../../utils/image-
 })
 export class FermeComponent implements OnInit {
   activeCategorie = signal<string>('tous');
+  searchTerm = signal<string>('');
   loading = signal(true);
 
   categories = signal<CategorieFerme[]>([
@@ -50,7 +51,7 @@ export class FermeComponent implements OnInit {
       if (list && list.length > 0) {
         this.produits.set(list.map((p) => ({
           ...p,
-          image: p.image || resolveFermeImage(p.name),
+          image: p.image || produitImage(p.slug) || resolveFermeImage(p.name),
         })));
       } else {
         this.produits.set(this.getFallbackProduits());
@@ -61,12 +62,22 @@ export class FermeComponent implements OnInit {
 
   get filteredProduits(): ProduitFerme[] {
     const slug = this.activeCategorie();
-    if (slug === 'tous') return this.produits();
-    return this.produits().filter((p: any) => p.categorie_slug === slug || (p.categorie && p.categorie.slug === slug));
+    const term = this.searchTerm().trim().toLowerCase();
+    return this.produits().filter((p: any) => {
+      const inCategorie = slug === 'tous' || p.categorie_slug === slug || (p.categorie && p.categorie.slug === slug);
+      if (!inCategorie) return false;
+      if (!term) return true;
+      const text = `${p.name} ${p.description} ${p.unit || ''}`.toLowerCase();
+      return text.includes(term);
+    });
   }
 
   setCategorie(slug: string): void {
     this.activeCategorie.set(slug);
+  }
+
+  onSearch(event: Event): void {
+    this.searchTerm.set((event.target as HTMLInputElement).value);
   }
 
   commanderProduit(prod: ProduitFerme): void {
@@ -83,19 +94,19 @@ export class FermeComponent implements OnInit {
 
   private getFallbackProduits(): ProduitFerme[] {
     return [
-      { id: 1, name: 'Oies de Chine (souche pure)', price: 15000, unit: 'pièce', description: 'Oies de Chine de race pure, élevées en plein air', bio: true, image: 'assets/images/volaille.jpg' },
-      { id: 2, name: 'Pintades & Pintadeaux', price: 5000, unit: 'pièce', description: 'Pintades de ferme réputées pour leur chair savoureuse', bio: true, image: 'assets/images/volaille.jpg' },
-      { id: 3, name: 'Dindes (Bronzé d\'Amérique) & Dindonneaux', price: 18000, unit: 'pièce', description: 'Dindes de grande taille élevées au grain', bio: true, image: 'assets/images/volaille.jpg' },
-      { id: 4, name: 'Poulets & Poussins Goliath', price: 4500, unit: 'pièce', description: 'Poulets Goliath vigoureux et à croissance rapide', bio: true, image: 'assets/images/volaille.jpg' },
-      { id: 5, name: 'Mouton Race Bali Bali (Race Peulh)', price: 65000, unit: 'pièce', description: 'Mouton Bali Bali de grande stature pour élevage et festivités', bio: true, image: 'assets/images/betail.jpg' },
-      { id: 6, name: 'Poissons Clarias (Poisson-chat)', price: 3500, unit: 'kg', description: 'Clarias frais issus de nos bassins aquacoles', bio: true, image: 'assets/images/poisson.jpg' },
-      { id: 7, name: 'Poissons Tilapia frais', price: 3000, unit: 'kg', description: 'Tilapia de qualité supérieure nourri bio', bio: true, image: 'assets/images/poisson.jpg' },
-      { id: 8, name: 'Alevins sélectionnés (Clarias / Tilapia)', price: 150, unit: 'pièce', description: 'Alevins rigoureusement triés et vigoureux pour pisciculture', bio: true, image: 'assets/images/poisson.jpg' },
-      { id: 9, name: 'Plants de Noni', price: 2000, unit: 'pièce', description: 'Jeunes plants de Noni aux propriétés médicinales réputées', bio: true, image: 'assets/images/plants.jpg' },
-      { id: 10, name: 'Bananier & Cocotier sélectionné', price: 2500, unit: 'pièce', description: 'Rejets de bananiers et cocotiers nains haute production', bio: true, image: 'assets/images/plants.jpg' },
-      { id: 11, name: 'Palmier local & sélectionné', price: 3000, unit: 'pièce', description: 'Plants de palmiers à huile sélectionnés haute performance', bio: true, image: 'assets/images/plants.jpg' },
-      { id: 12, name: 'Miel pur d\'abeilles (Cœur de Bambousiers)', price: 5000, unit: 'bouteille (75cl)', description: 'Miel rare récolté dans les ruches situées au cœur de nos bambouseraies', bio: true, image: 'assets/images/miel.jpg' },
-      { id: 13, name: 'Miel pur d\'abeilles (Cœur de Palmiers)', price: 5500, unit: 'bouteille (75cl)', description: 'Miel ambré et parfumé récolté au cœur des palmeraies', bio: true, image: 'assets/images/miel.jpg' }
+      { id: 1, slug: 'oies-de-chine-souche-pure', name: 'Oies de Chine (souche pure)', price: 15000, unit: 'pièce', description: 'Oies de Chine de race pure, élevées en plein air', bio: true, image: 'assets/images/produits/oies-de-chine-souche-pure.jpg' },
+      { id: 2, slug: 'pintades-pintadeaux', name: 'Pintades & Pintadeaux', price: 5000, unit: 'pièce', description: 'Pintades de ferme réputées pour leur chair savoureuse', bio: true, image: 'assets/images/produits/pintades-pintadeaux.jpg' },
+      { id: 3, slug: 'dindes-bronze-damerique-dindonneaux', name: 'Dindes (Bronzé d\'Amérique) & Dindonneaux', price: 18000, unit: 'pièce', description: 'Dindes de grande taille élevées au grain', bio: true, image: 'assets/images/produits/dindes-bronze-damerique-dindonneaux.jpg' },
+      { id: 4, slug: 'poulets-poussins-goliath', name: 'Poulets & Poussins Goliath', price: 4500, unit: 'pièce', description: 'Poulets Goliath vigoureux et à croissance rapide', bio: true, image: 'assets/images/produits/poulets-poussins-goliath.jpg' },
+      { id: 5, slug: 'mouton-race-bali-bali-race-peulh', name: 'Mouton Race Bali Bali (Race Peulh)', price: 65000, unit: 'pièce', description: 'Mouton Bali Bali de grande stature pour élevage et festivités', bio: true, image: 'assets/images/produits/mouton-race-bali-bali-race-peulh.jpg' },
+      { id: 6, slug: 'poissons-clarias-poisson-chat', name: 'Poissons Clarias (Poisson-chat)', price: 3500, unit: 'kg', description: 'Clarias frais issus de nos bassins aquacoles', bio: true, image: 'assets/images/produits/poissons-clarias-poisson-chat.jpg' },
+      { id: 7, slug: 'poissons-tilapia-frais', name: 'Poissons Tilapia frais', price: 3000, unit: 'kg', description: 'Tilapia de qualité supérieure nourri bio', bio: true, image: 'assets/images/produits/poissons-tilapia-frais.jpg' },
+      { id: 8, slug: 'alevins-selectionnes-clarias-tilapia-pengasius', name: 'Alevins sélectionnés (Clarias / Tilapia)', price: 150, unit: 'pièce', description: 'Alevins rigoureusement triés et vigoureux pour pisciculture', bio: true, image: 'assets/images/produits/alevins-selectionnes-clarias-tilapia-pengasius.jpg' },
+      { id: 9, slug: 'plants-de-noni', name: 'Plants de Noni', price: 2000, unit: 'pièce', description: 'Jeunes plants de Noni aux propriétés médicinales réputées', bio: true, image: 'assets/images/produits/plants-de-noni.jpg' },
+      { id: 10, slug: 'bananier-cocotier-selectionne', name: 'Bananier & Cocotier sélectionné', price: 2500, unit: 'pièce', description: 'Rejets de bananiers et cocotiers nains haute production', bio: true, image: 'assets/images/produits/bananier-cocotier-selectionne.jpg' },
+      { id: 11, slug: 'palmier-local-selectionne', name: 'Palmier local & sélectionné', price: 3000, unit: 'pièce', description: 'Plants de palmiers à huile sélectionnés haute performance', bio: true, image: 'assets/images/produits/palmier-local-selectionne.jpg' },
+      { id: 12, slug: 'miel-pur-dabeilles-cur-de-bambousiers', name: 'Miel pur d\'abeilles (Cœur de Bambousiers)', price: 5000, unit: 'bouteille (75cl)', description: 'Miel rare récolté dans les ruches situées au cœur de nos bambouseraies', bio: true, image: 'assets/images/produits/miel-pur-dabeilles-cur-de-bambousiers.jpg' },
+      { id: 13, slug: 'miel-pur-dabeilles-cur-de-palmiers', name: 'Miel pur d\'abeilles (Cœur de Palmiers)', price: 5500, unit: 'bouteille (75cl)', description: 'Miel ambré et parfumé récolté au cœur des palmeraies', bio: true, image: 'assets/images/produits/miel-pur-dabeilles-cur-de-palmiers.jpg' }
     ];
   }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PanierService } from '../../services/panier.service';
 import { ApiService } from '../../services/api.service';
 import { Plat, Boisson, CategorieMenu } from '../../models/produit.model';
-import { resolveBoissonImage, resolveMenuImage } from '../../utils/image-resolver';
+import { resolveBoissonImage, resolveMenuImage, produitImage } from '../../utils/image-resolver';
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +14,7 @@ import { resolveBoissonImage, resolveMenuImage } from '../../utils/image-resolve
 })
 export class MenuComponent implements OnInit {
   activeCategorie = signal<string>('tous');
+  searchTerm = signal<string>('');
   panierOuvert = signal(false);
   loading = signal(true);
 
@@ -55,7 +56,7 @@ export class MenuComponent implements OnInit {
       if (platList && platList.length > 0) {
         this.plats.set(platList.map((p: any) => ({
           ...p,
-          image: p.image || resolveMenuImage(p.name),
+          image: p.image || produitImage(p.slug) || resolveMenuImage(p.name),
         })));
       } else {
         this.plats.set(this.getFallbackPlats());
@@ -67,7 +68,7 @@ export class MenuComponent implements OnInit {
       if (boissonList && boissonList.length > 0) {
         this.boissons.set(boissonList.map((b: any) => ({
           ...b,
-          image: b.image || resolveBoissonImage(b.name, b.type_boisson || ''),
+          image: b.image || produitImage(b.slug) || resolveBoissonImage(b.name, b.type_boisson || ''),
         })));
       } else {
         this.boissons.set(this.getFallbackBoissons());
@@ -77,23 +78,30 @@ export class MenuComponent implements OnInit {
 
   get filteredPlats(): Plat[] {
     const slug = this.activeCategorie();
-    if (slug === 'tous') return this.plats();
+    const term = this.searchTerm().trim().toLowerCase();
     if (slug === 'boissons-artisanales' || slug === 'desserts-cremes-glacees') return [];
-    return this.plats().filter((p: any) => p.categorie_slug === slug || (p.categorie && p.categorie.slug === slug));
+    return this.plats().filter((p: any) => {
+      const inCategorie = slug === 'tous' || p.categorie_slug === slug || (p.categorie && p.categorie.slug === slug);
+      if (!inCategorie) return false;
+      if (!term) return true;
+      const text = `${p.name} ${p.description}`.toLowerCase();
+      return text.includes(term);
+    });
   }
 
   get filteredBoissons(): Boisson[] {
     const slug = this.activeCategorie();
+    const term = this.searchTerm().trim().toLowerCase();
+    let list: Boisson[] = [];
     if (slug === 'boissons-artisanales') {
-      return this.boissons().filter(b => b.type_boisson === 'Jus' || !b.type_boisson);
+      list = this.boissons().filter(b => b.type_boisson === 'Jus' || !b.type_boisson);
+    } else if (slug === 'desserts-cremes-glacees') {
+      list = this.boissons().filter(b => b.type_boisson === 'Dessert');
+    } else if (slug === 'tous') {
+      list = this.boissons();
     }
-    if (slug === 'desserts-cremes-glacees') {
-      return this.boissons().filter(b => b.type_boisson === 'Dessert');
-    }
-    if (slug === 'tous') {
-      return this.boissons();
-    }
-    return [];
+    if (!term) return list;
+    return list.filter((b) => `${b.name} ${b.description}`.toLowerCase().includes(term));
   }
 
   get showBoissonsOnly(): boolean {
@@ -103,6 +111,10 @@ export class MenuComponent implements OnInit {
 
   setCategorie(slug: string): void {
     this.activeCategorie.set(slug);
+  }
+
+  onSearch(event: Event): void {
+    this.searchTerm.set((event.target as HTMLInputElement).value);
   }
 
   selectOption(platId: number, optionLabel: string, value: string): void {
@@ -146,7 +158,7 @@ export class MenuComponent implements OnInit {
 
   validerWhatsApp(): void {
     const message = this.panierService.genererMessageWhatsApp();
-    // Numéro officiel WhatsApp Saveurs d'Agojie (+229 01 97 00 00 00 / WhatsApp Bénin)
+    // Numéro officiel WhatsApp Saveurs d'Agojiés (+229 01 97 00 00 00 / WhatsApp Bénin)
     const url = `https://wa.me/2290197000000?text=${message}`;
     window.open(url, '_blank');
   }

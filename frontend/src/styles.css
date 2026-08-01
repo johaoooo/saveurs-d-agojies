@@ -1,12 +1,14 @@
 :root {
-  /* Palette officielle · Blanc & Chrome Yellow */
+  /* Palette officielle · Jaune Toscane (Tuscany Yellow #FCD12A) */
   --primary: #FFFFFF;
-  --yellow: #FFA700;
-  --yellow-bright: #FFC24D;
-  --yellow-light: #FFF4E0;
-  --yellow-dark: #C98500;
-  --yellow-glow: rgba(255, 167, 0, 0.35);
-  --yellow-gradient: linear-gradient(135deg, #FFA700 0%, #FFC24D 50%, #E89100 100%);
+  --yellow: #FCD12A;
+  --accent: #FCD12A;
+  --primary-yellow: #FCD12A;
+  --yellow-bright: #FFE066;
+  --yellow-light: #FFF9E6;
+  --yellow-dark: #C99700;
+  --yellow-glow: rgba(252, 209, 42, 0.35);
+  --yellow-gradient: linear-gradient(135deg, #FCD12A 0%, #FFE066 50%, #C99700 100%);
 
   /* Neutres */
   --bg-dark: #0A0A0C;
@@ -153,8 +155,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 10px;
   width: 100%;
   background-image:
-    repeating-linear-gradient(135deg, #FFA700 0px, #FFA700 5px, transparent 5px, transparent 10px),
-    repeating-linear-gradient(45deg, #FFC24D 0px, #FFC24D 5px, transparent 5px, transparent 10px);
+    repeating-linear-gradient(135deg, var(--yellow) 0px, var(--yellow) 5px, transparent 5px, transparent 10px),
+    repeating-linear-gradient(45deg, var(--yellow-bright) 0px, var(--yellow-bright) 5px, transparent 5px, transparent 10px);
   background-size: 14px 10px;
   background-repeat: repeat-x;
   background-position: center;
@@ -345,12 +347,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FFA700;
+  background: var(--yellow);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFC24D;
+  background: var(--yellow-bright);
 }
 
 /* ---- Animations d'apparition ---- */

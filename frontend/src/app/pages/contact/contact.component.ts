@@ -25,7 +25,7 @@ export class ContactComponent {
   onSubmit(): void {
     this.submitted = true;
     if (this.contactForm.valid) {
-      const whatsappMessage = `*Nouveau message - Saveurs d'Agojie*%0A%0A` +
+      const whatsappMessage = `*Nouveau message - Saveurs d'Agojiés*%0A%0A` +
         `*Sujet:* ${this.contactForm.value.sujet}%0A` +
         `*Nom:* ${this.contactForm.value.nom}%0A` +
         `*Email:* ${this.contactForm.value.email}%0A` +
