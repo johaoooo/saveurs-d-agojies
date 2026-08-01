@@ -4,26 +4,44 @@
   <div class="hero-orb hero-orb--one"></div>
   <div class="hero-orb hero-orb--two"></div>
   <div class="hero-grain"></div>
-  <div class="hero-fade"></div>
 
-  <div class="hero-content">
-    <h1 class="hero-title anim-up anim-up--d1">
-      <span class="hero-title-top">De la ferme</span>
-      <span class="hero-title-accent">
-        à l'assiette
-        <svg class="hero-underline" viewBox="0 0 320 14" fill="none" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M3 10.5C80 4 180 2.5 317 9" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </h1>
-    <p class="hero-subtitle anim-up anim-up--d2">Ferme · Restaurant · Traiteur · Événements</p>
-    <p class="hero-description anim-up anim-up--d2">
-      Élevage traditionnel, produits frais et cuisine béninoise d'exception·
-      de Porto-Novo à votre table.
-    </p>
-    <div class="hero-actions anim-up anim-up--d3">
-      <a routerLink="/menu" class="btn btn-primary btn-lg">Découvrir le Menu</a>
-      <a routerLink="/ferme" class="btn btn-outline btn-lg">La Ferme & Pépinière</a>
+  <div class="container hero-container">
+    <div class="hero-grid">
+      <!-- Colonne Texte -->
+      <div class="hero-text-content">
+        <span class="hero-tag">🌾 Élevage · Restauration · Traiteur · Formations</span>
+        <h1 class="hero-title anim-up anim-up--d1">
+          <span class="hero-title-top">De la ferme</span>
+          <span class="hero-title-accent">
+            à l'assiette
+            <svg class="hero-underline" viewBox="0 0 320 14" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M3 10.5C80 4 180 2.5 317 9" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </h1>
+        <p class="hero-description anim-up anim-up--d2">
+          Élevage traditionnel éco-responsable, produits frais et cuisine béninoise d'exception · de Porto-Novo à votre table.
+        </p>
+        <div class="hero-actions anim-up anim-up--d3">
+          <a routerLink="/menu" class="btn btn-primary btn-lg">Découvrir le Menu</a>
+          <a routerLink="/ferme" class="btn btn-outline-light btn-lg">La Ferme & Pépinière</a>
+        </div>
+      </div>
+
+      <!-- Colonne Image Illustrative -->
+      <div class="hero-image-wrapper anim-up anim-up--d2">
+        <div class="hero-image-frame">
+          <img src="assets/images/hero-grill.jpg" alt="Saveurs d'Agojiés - Cuisine & Ferme" class="hero-img-main" loading="eager">
+          <div class="hero-badge hero-badge-location">
+            <span>📍 Porto-Novo, Bénin</span>
+          </div>
+          <div class="hero-badge hero-badge-quality">
+            <span>✨ 100% Bio & Produit Frais</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="hero-fade"></div>
 </section>
