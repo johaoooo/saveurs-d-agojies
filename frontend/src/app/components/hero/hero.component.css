@@ -245,11 +245,7 @@
   }
 
   .hero-actions {
-    flex-direction: column;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
+    display: none;
   }
 }
 
