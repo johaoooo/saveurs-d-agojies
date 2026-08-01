@@ -278,6 +278,10 @@
   }
 }
 
+.hero-mobile-action {
+  display: none;
+}
+
 @media (max-width: 576px) {
   .hero {
     padding-top: 80px;
@@ -285,6 +289,24 @@
 
   .hero-title {
     font-size: 2rem;
+  }
+
+  .hero-mobile-action {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 20px;
+  }
+
+  .btn-mobile-menu {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px var(--yellow-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--yellow);
+    color: var(--text-dark);
   }
 
   .hero-image-wrapper {
@@ -305,6 +327,7 @@
 
   .hero-description {
     text-align: center;
+    margin-bottom: 8px;
   }
 
   .hero-actions {
