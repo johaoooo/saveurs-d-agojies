@@ -1,3 +1,21 @@
+<!-- ============ GLOBAL ULTRA-PRO PRELOADER ============ -->
+@if (loading()) {
+  <div class="preloader-overlay" [class.fade-out]="fadeOut()">
+    <div class="preloader-content">
+      <div class="logo-ring-wrapper">
+        <div class="pulse-ring"></div>
+        <img src="assets/images/logo.jpg" alt="Saveurs d'Agojiés" class="preloader-logo">
+      </div>
+      <h2 class="preloader-brand">Saveurs <span class="accent">d'Agojiés</span></h2>
+      <p class="preloader-tagline">De la ferme à votre table</p>
+
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+}
+
 <app-header></app-header>
 <main>
   <router-outlet></router-outlet>
