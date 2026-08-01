@@ -144,10 +144,29 @@
 
 @media (max-width: 560px) {
   .auth-card {
-    padding: 36px 24px;
+    padding: 32px 18px;
+    margin: 0 12px;
+  }
+
+  .auth-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .auth-logo {
+    width: 80px;
+    height: 80px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .auth-form {
+    gap: 16px;
+  }
+
+  .form-control {
+    font-size: 16px;
+    padding: 12px 14px;
   }
 }

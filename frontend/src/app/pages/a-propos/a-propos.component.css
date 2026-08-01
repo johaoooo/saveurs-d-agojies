@@ -296,11 +296,7 @@
 }
 
 @media (max-width: 900px) {
-.page-header {
-  --page-header-img: url('/assets/images/cuisine-chef.jpg');
-}
-
-.story-grid {
+  .story-grid {
     grid-template-columns: 1fr;
     gap: 44px;
   }
@@ -318,8 +314,97 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .story-image img {
+    height: 240px;
+  }
+
+  .story-title {
+    font-size: 1.6rem;
+  }
+
+  .decoration-box {
+    padding: 16px 24px;
+    max-width: 260px;
+  }
+
+  .decoration-year {
+    font-size: 1.8rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .value-card {
+    padding: 24px 18px;
+  }
+
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+  }
+
+  .value-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .value-card p {
+    font-size: 0.82rem;
+  }
+
+  .engagement-list {
+    gap: 8px;
+  }
+
+  .engagement-item {
+    padding: 12px 16px;
+    font-size: 0.88rem;
+  }
+
+  .engagement-intro {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-image img {
+    height: 200px;
+  }
+
+  .story-title {
+    font-size: 1.4rem;
+  }
+
   .values-grid {
     grid-template-columns: 1fr;
+  }
+
+  .decoration-box {
+    padding: 14px 20px;
+    max-width: 220px;
+  }
+
+  .decoration-year {
+    font-size: 1.5rem;
+  }
+
+  .engagement-item {
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+
+  .engagement-check {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
 }

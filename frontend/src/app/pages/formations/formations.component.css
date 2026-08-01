@@ -283,7 +283,34 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .hero-showcase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .img-hero-feature {
+    height: 220px;
+  }
+
+  .showcase-lead {
+    font-size: 1rem;
+  }
+
+  .program-block, .program-block.reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 18px;
+  }
+
+  .program-block.reverse .program-gallery {
+    order: 1;
+  }
+
+  .program-block.reverse .program-details {
+    order: 2;
+  }
+
   .program-gallery {
     grid-template-columns: 1fr;
   }
@@ -295,11 +322,20 @@
   .gallery-primary.ratio-tall img,
   .gallery-primary.ratio-wide img,
   .gallery-primary.ratio-square img {
-    height: 230px;
+    height: 200px;
   }
 
   .program-details h3 {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
+  }
+
+  .program-actions {
+    flex-direction: column;
+  }
+
+  .program-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .action-banner-buttons {
@@ -308,5 +344,58 @@
 
   .action-banner-buttons .btn {
     width: 100%;
+    justify-content: center;
+  }
+
+  .formations-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .formation-card {
+    padding: 24px 18px;
+  }
+
+  .formations-cta-box {
+    padding: 24px 18px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .formations-cta-box .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-hero-feature {
+    height: 180px;
+  }
+
+  .program-block, .program-block.reverse {
+    padding: 20px 14px;
+  }
+
+  .gallery-primary.ratio-tall img,
+  .gallery-primary.ratio-wide img,
+  .gallery-primary.ratio-square img {
+    height: 160px;
+  }
+
+  .program-details h3 {
+    font-size: 1.15rem;
+  }
+
+  .program-curriculum {
+    padding: 14px;
+  }
+
+  .curriculum-list li {
+    font-size: 0.85rem;
+  }
+
+  .action-banner-content h2 {
+    font-size: 1.6rem;
   }
 }

@@ -240,20 +240,20 @@ nav a.active {
 
 @media (max-width: 900px) {
   .header-inner {
-    height: 76px;
+    height: 72px;
   }
 
   .logo {
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo-img {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
   }
 
   .logo-text {
-    font-size: 1.18rem;
+    font-size: 1.1rem;
   }
 
   .hamburger {
@@ -310,7 +310,7 @@ nav a.active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 20px;
+    padding: 16px 18px;
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-light);
   }
@@ -320,13 +320,13 @@ nav a.active {
     align-items: center;
     gap: 10px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-dark);
   }
 
   .logo-img-sm {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 2px solid var(--yellow);
     object-fit: cover;
@@ -344,6 +344,8 @@ nav a.active {
     color: var(--text-muted);
     cursor: pointer;
     transition: var(--transition);
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .mobile-nav-close:hover {
@@ -354,13 +356,13 @@ nav a.active {
 
   .nav-links {
     flex-direction: column;
-    padding: 16px 14px;
-    gap: 6px;
+    padding: 12px 10px;
+    gap: 4px;
     flex: 1;
   }
 
   nav a {
-    padding: 12px 16px;
+    padding: 14px 16px;
     font-size: 0.98rem;
     border-radius: 12px;
     display: flex;
@@ -368,6 +370,7 @@ nav a.active {
     gap: 12px;
     color: var(--text-dark);
     font-weight: 500;
+    min-height: 44px;
   }
 
   nav a:hover,
@@ -390,10 +393,11 @@ nav a.active {
   .nav-dropdown-btn {
     width: 100%;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 14px 16px;
     font-size: 0.98rem;
     color: var(--text-dark);
     border-radius: 12px;
+    min-height: 44px;
   }
 
   .dropdown-menu {
@@ -421,12 +425,13 @@ nav a.active {
   }
 
   .dropdown-menu a {
-    padding: 10px 14px 10px 20px;
+    padding: 12px 14px 12px 22px;
+    min-height: 44px;
   }
 
   .mobile-nav-footer {
     display: block;
-    padding: 18px 20px 28px;
+    padding: 16px 18px 24px;
     border-top: 1px solid var(--border-light);
     background: var(--bg-light);
   }
@@ -434,7 +439,7 @@ nav a.active {
   .btn-login-mobile {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     text-align: center;
     background: var(--yellow-gradient);
     color: var(--text-dark);
@@ -443,6 +448,10 @@ nav a.active {
     text-decoration: none;
     box-shadow: var(--shadow-yellow);
     font-size: 0.92rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mobile-user-card {
@@ -460,7 +469,7 @@ nav a.active {
 
   .btn-logout-mobile {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: rgba(220, 53, 69, 0.08);
     border: 1px solid rgba(220, 53, 69, 0.3);
     color: #C0392B;
@@ -468,6 +477,7 @@ nav a.active {
     font-weight: 600;
     cursor: pointer;
     font-size: 0.88rem;
+    min-height: 44px;
   }
 
   .btn-inscription span {
@@ -476,6 +486,8 @@ nav a.active {
 
   .btn-inscription {
     padding: 9px 12px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .user-greeting {
@@ -488,25 +500,33 @@ nav a.active {
 
   .btn-logout {
     padding: 9px 12px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
 @media (max-width: 480px) {
   .header-inner {
-    height: 70px;
+    height: 64px;
   }
 
   .logo-img {
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
   }
 
   .logo-text {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .header-actions {
-    gap: 8px;
+    gap: 6px;
+  }
+
+  .panier-btn {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 

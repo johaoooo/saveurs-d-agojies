@@ -95,8 +95,20 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 24px;
 }
 
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .section {
   padding: 96px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
 }
 
 .section-dark {
@@ -123,6 +135,18 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.5px;
 }
 
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.7rem;
+  }
+}
+
 .section-title .accent {
   color: var(--yellow-dark);
 }
@@ -144,6 +168,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
   margin-right: auto;
   font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+    padding: 0 8px;
+  }
 }
 
 .section-dark .section-subtitle {
@@ -181,6 +213,18 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.4px;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 13px 24px;
+    font-size: 0.85rem;
+  }
+
+  .btn-lg {
+    padding: 15px 28px;
+    font-size: 0.9rem;
+  }
 }
 
 .btn-primary {
@@ -243,6 +287,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
+@media (max-width: 480px) {
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+  }
+}
+
 /* ---- Bannière d'en-tête de page ---- */
 .page-header {
   background: var(--bg-dark);
@@ -252,6 +303,18 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border-bottom: 4px solid var(--yellow);
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 110px 0 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding: 90px 0 40px;
+  }
 }
 
 .page-header::before {
@@ -296,6 +359,18 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.5px;
 }
 
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
 .page-header h1 .accent {
   color: var(--yellow);
 }
@@ -306,6 +381,13 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 640px;
   margin: 0 auto;
   font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .page-header p {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
 }
 
 /* ---- Badges ---- */
@@ -384,8 +466,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
-  .section { padding: 72px 0; }
+  .section { padding: 64px 0; }
   .section-title { font-size: 2.2rem; }
   .page-header { padding: 130px 0 60px; }
   .page-header h1 { font-size: 2.4rem; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .section-title { font-size: 2rem; }
+  .page-header { padding: 110px 0 50px; }
+  .page-header h1 { font-size: 2rem; }
+  .page-header p { font-size: 0.95rem; }
+  .btn { padding: 13px 24px; font-size: 0.85rem; }
+  .btn-lg { padding: 14px 28px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .section-title { font-size: 1.7rem; }
+  .page-header { padding: 90px 0 40px; }
+  .page-header h1 { font-size: 1.8rem; }
+  .btn { padding: 12px 20px; font-size: 0.82rem; }
+  .btn-lg { padding: 13px 22px; font-size: 0.85rem; }
 }

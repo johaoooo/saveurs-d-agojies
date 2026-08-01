@@ -188,10 +188,6 @@ textarea.form-control {
 }
 
 @media (max-width: 900px) {
-  .page-header {
-    --page-header-img: url('/assets/images/resto-salle.jpg');
-  }
-
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -209,12 +205,12 @@ textarea.form-control {
   }
 
   .contact-form {
-    gap: 16px;
+    gap: 14px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .form-control {
@@ -223,18 +219,18 @@ textarea.form-control {
   }
 
   .contact-card {
-    padding: 24px 20px;
-    border-radius: var(--radius-md);
+    padding: 22px 18px;
+    border-radius: var(--radius);
   }
 
   .contact-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 18px;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
   }
 
   .contact-detail {
-    padding: 12px 0;
-    gap: 14px;
+    padding: 10px 0;
+    gap: 12px;
   }
 
   .contact-icon {
@@ -244,5 +240,25 @@ textarea.form-control {
 
   .map-placeholder {
     height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 18px 14px;
+  }
+
+  .contact-detail {
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .contact-whatsapp {
+    margin-top: 6px;
+    padding-top: 14px;
   }
 }

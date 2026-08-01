@@ -821,3 +821,359 @@
     padding: 28px 22px;
   }
 }
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 0 20px 28px;
+  }
+
+  .service-image {
+    height: 140px;
+    width: calc(100% + 40px);
+    margin: 0 -20px 18px;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .step-card {
+    padding: 28px 20px 24px;
+  }
+
+  .step-num {
+    font-size: 3rem;
+  }
+
+  .farm-values {
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 32px;
+  }
+
+  .value-item {
+    padding: 0;
+    border-left: none !important;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .value-num {
+    font-size: 2.2rem;
+  }
+
+  .signature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-card .signature-image {
+    height: 180px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .traiteur-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .traiteur-image-box img {
+    height: 240px;
+  }
+
+  .traiteur-features li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .traiteur-actions {
+    flex-direction: column;
+  }
+
+  .traiteur-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .formations-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .formation-card {
+    padding: 24px 18px;
+  }
+
+  .formations-cta-box {
+    padding: 24px 18px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .formations-cta-box .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .programs-list {
+    gap: 40px;
+  }
+
+  .program-block,
+  .program-block.reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 18px;
+  }
+
+  .program-block.reverse .program-gallery {
+    order: 1;
+  }
+
+  .program-block.reverse .program-details {
+    order: 2;
+  }
+
+  .program-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-secondary {
+    display: none;
+  }
+
+  .gallery-primary.ratio-tall img,
+  .gallery-primary.ratio-wide img,
+  .gallery-primary.ratio-square img {
+    height: 200px;
+  }
+
+  .program-details h3 {
+    font-size: 1.3rem;
+  }
+
+  .program-actions {
+    flex-direction: column;
+  }
+
+  .program-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-showcase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .img-hero-feature {
+    height: 220px;
+  }
+
+  .showcase-lead {
+    font-size: 1rem;
+  }
+
+  .action-banner-buttons {
+    flex-direction: column;
+  }
+
+  .action-banner-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .story-timeline {
+    order: -1;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-image {
+    height: 160px;
+    width: calc(100% + 32px);
+    margin: 0 -16px 16px;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .step-card {
+    padding: 24px 16px 20px;
+  }
+
+  .step-num {
+    font-size: 2.5rem;
+  }
+
+  .value-num {
+    font-size: 1.8rem;
+  }
+
+  .signature-card .signature-image {
+    height: 160px;
+  }
+
+  .signature-body {
+    padding: 20px 16px 24px;
+  }
+
+  .testimonial-card {
+    padding: 20px 16px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .traiteur-image-box img {
+    height: 200px;
+  }
+
+  .traiteur-badge {
+    bottom: 12px;
+    left: 12px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .formations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .formation-card {
+    padding: 20px 16px;
+  }
+
+  .formation-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+
+  .formations-cta-box {
+    padding: 20px 16px;
+  }
+
+  .program-block,
+  .program-block.reverse {
+    padding: 20px 14px;
+  }
+
+  .gallery-primary.ratio-tall img,
+  .gallery-primary.ratio-wide img,
+  .gallery-primary.ratio-square img {
+    height: 180px;
+  }
+
+  .program-details h3 {
+    font-size: 1.15rem;
+  }
+
+  .program-curriculum {
+    padding: 14px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decoration-box {
+    padding: 14px 20px;
+    max-width: 240px;
+  }
+
+  .decoration-year {
+    font-size: 1.6rem;
+  }
+
+  .story-image img {
+    height: 220px;
+  }
+
+  .story-image-caption {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .story-signature-name {
+    font-size: 1rem;
+  }
+
+  .engagement-list {
+    gap: 8px;
+  }
+
+  .engagement-item {
+    padding: 12px 16px;
+    font-size: 0.88rem;
+  }
+
+  .traiture-features li {
+    gap: 8px;
+  }
+}

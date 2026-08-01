@@ -160,5 +160,55 @@ footer::before {
 @media (max-width: 600px) {
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  footer {
+    padding-top: 60px;
+  }
+
+  .footer-logo-img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .footer-logo span {
+    font-size: 1.1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .footer-links h4,
+  .footer-contact h4,
+  .footer-services h4 {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+
+  .footer-links a,
+  .footer-contact p,
+  .footer-services span {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-social {
+    gap: 10px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-bottom {
+    padding: 20px 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
   }
 }

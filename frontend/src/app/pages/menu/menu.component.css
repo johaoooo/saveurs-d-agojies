@@ -728,7 +728,7 @@
 
 @media (max-width: 768px) {
   .search-bar {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .categories-tabs {
@@ -737,7 +737,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 4px 4px 14px;
+    padding: 4px 4px 12px;
     margin-left: -12px;
     margin-right: -12px;
     padding-left: 12px;
@@ -754,8 +754,8 @@
     flex-shrink: 0;
     scroll-snap-align: start;
     white-space: nowrap;
-    padding: 10px 20px;
-    font-size: 0.88rem;
+    padding: 9px 16px;
+    font-size: 0.82rem;
     border-radius: 50px;
   }
 
@@ -765,7 +765,7 @@
 
   .plats-grid, .boissons-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
 
   .plat-card {
@@ -773,25 +773,19 @@
   }
 
   .plat-image {
-    height: 220px;
+    height: 200px;
   }
 
   .plat-info {
-    padding: 18px 20px 0;
+    padding: 16px 18px 0;
   }
 
   .plat-actions {
-    padding: 14px 20px 18px;
+    padding: 12px 18px 16px;
   }
 
   .plat-prix {
-    font-size: 1.2rem;
-  }
-
-  .plat-btn {
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    border-radius: 50px;
+    font-size: 1.1rem;
   }
 
   .panier-sidebar {
@@ -800,9 +794,63 @@
   }
 
   .panier-fab {
-    bottom: 24px;
-    right: 24px;
-    width: 58px;
-    height: 58px;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .image-modal-backdrop {
+    padding: 12px;
+  }
+
+  .image-modal-content {
+    border-radius: 16px;
+  }
+
+  .image-modal-img {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    font-size: 16px;
+    padding: 13px 48px 13px 44px;
+  }
+
+  .categorie-tab {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+  }
+
+  .plat-image {
+    height: 180px;
+  }
+
+  .plat-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .plat-info p {
+    font-size: 0.85rem;
+  }
+
+  .plat-options {
+    gap: 8px;
+  }
+
+  .option-select {
+    font-size: 16px;
+    padding: 10px 10px;
+  }
+
+  .panier-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .panier-item-controls {
+    align-self: flex-end;
   }
 }
