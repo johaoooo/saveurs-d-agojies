@@ -40,20 +40,20 @@ header.scrolled {
 }
 
 .logo-text {
-  font-family: 'Allura', cursive;
+  font-family: 'Burgues Script', 'Bickham Script Pro', 'Alex Brush', 'Rouge Script', 'Pinyon Script', cursive;
   font-size: 2.35rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: 0.5px;
   line-height: 1;
-  -webkit-text-stroke: 0.6px var(--text-dark);
+  -webkit-text-stroke: 0.5px var(--text-dark);
 }
 
 .logo-accent {
-  font-family: 'Allura', cursive;
+  font-family: 'Burgues Script', 'Bickham Script Pro', 'Alex Brush', 'Rouge Script', 'Pinyon Script', cursive;
   font-weight: 700;
   color: var(--yellow-dark);
-  -webkit-text-stroke: 0.6px var(--yellow-dark);
+  -webkit-text-stroke: 0.5px var(--yellow-dark);
 }
 
 .mobile-overlay {
@@ -322,7 +322,7 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Allura', cursive;
+    font-family: 'Burgues Script', 'Bickham Script Pro', 'Alex Brush', 'Rouge Script', 'Pinyon Script', cursive;
     font-weight: 700;
     font-size: 1.75rem;
     color: var(--text-dark);
