@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,14 +11,10 @@ import { RouterLink } from '@angular/router';
 export class HeroComponent implements OnInit, OnDestroy {
   currentSlide = signal(0);
   slides = [
+    'https://res.cloudinary.com/dzxesa3wi/image/upload/v1785612103/WhatsApp_Image_2026-08-01_at_20.13.49-removebg-preview_1_af8p7b.png',
     'https://res.cloudinary.com/dzxesa3wi/image/upload/v1785622679/WhatsApp_Image_2026-08-01_at_23.13.40-removebg-preview_qyfecu.png',
     'assets/images/plat-gourmet.jpg',
     'assets/images/champ.jpg',
-  ];
-  leftSlides = [
-    'https://res.cloudinary.com/dzxesa3wi/image/upload/v1785622679/WhatsApp_Image_2026-08-01_at_23.13.40-removebg-preview_qyfecu.png',
-    'assets/images/hero-grill.jpg',
-    'assets/images/plat-chef.jpg',
   ];
   private timer: any;
 
