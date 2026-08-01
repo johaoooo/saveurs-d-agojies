@@ -20,9 +20,39 @@
 
       <div class="nav-links">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Accueil</a>
-        <a routerLink="/ferme" routerLinkActive="active" (click)="closeMenu()">La Ferme</a>
-        <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Notre Menu</a>
-        <a routerLink="/formations" routerLinkActive="active" (click)="closeMenu()">Formations</a>
+        
+        <div class="nav-item-dropdown" [class.open]="servicesDropdownOpen()">
+          <button class="nav-dropdown-btn" (click)="toggleServicesDropdown($event)">
+            <span>Services</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dropdown-chevron">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="dropdown-menu">
+            <a routerLink="/ferme" routerLinkActive="active" (click)="closeMenu()">
+              <span class="dropdown-icon">🌱</span>
+              <div>
+                <strong>La Ferme & Pépinière</strong>
+                <small>Élevage, pisciculture & plants bio</small>
+              </div>
+            </a>
+            <a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">
+              <span class="dropdown-icon">🍽️</span>
+              <div>
+                <strong>Notre Menu Restaurant</strong>
+                <small>Spécialités, méchouis & jus frais</small>
+              </div>
+            </a>
+            <a routerLink="/formations" routerLinkActive="active" (click)="closeMenu()">
+              <span class="dropdown-icon">🎓</span>
+              <div>
+                <strong>Formations Pratiques</strong>
+                <small>Art culinaire, élevage & pépinière</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <a routerLink="/a-propos" routerLinkActive="active" (click)="closeMenu()">À Propos</a>
         <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
       </div>

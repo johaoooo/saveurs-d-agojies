@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
   mobileMenuOpen = signal(false);
+  servicesDropdownOpen = signal(false);
   scrolled = signal(false);
 
   constructor(
@@ -35,7 +36,16 @@ export class HeaderComponent {
     this.mobileMenuOpen.update((v) => !v);
   }
 
+  toggleServicesDropdown(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    this.servicesDropdownOpen.update((v) => !v);
+  }
+
   closeMenu(): void {
     this.mobileMenuOpen.set(false);
+    this.servicesDropdownOpen.set(false);
   }
 }
