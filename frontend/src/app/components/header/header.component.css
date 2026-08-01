@@ -40,19 +40,19 @@ header.scrolled {
 }
 
 .logo-text {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.65rem;
-  font-weight: 700;
+  font-family: 'Montserrat', var(--font-sans);
+  font-size: 1.45rem;
+  font-weight: 800;
   color: var(--text-dark);
-  letter-spacing: -0.3px;
+  letter-spacing: -0.5px;
   line-height: 1.1;
   -webkit-text-stroke: initial;
 }
 
 .logo-accent {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
+  font-family: 'Montserrat', var(--font-sans);
+  font-style: normal;
+  font-weight: 800;
   color: var(--yellow-dark);
   -webkit-text-stroke: initial;
 }
@@ -323,9 +323,9 @@ nav a.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-family: 'Montserrat', var(--font-sans);
+    font-weight: 800;
+    font-size: 1rem;
     color: var(--text-dark);
     -webkit-text-stroke: initial;
   }
